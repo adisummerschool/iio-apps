@@ -45,6 +45,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/iio-raw_buffer.dir/DependInfo.cmake"
   "CMakeFiles/iio-raw_getraw.dir/DependInfo.cmake"
   "CMakeFiles/iio-raw_ctxattr.dir/DependInfo.cmake"
   "CMakeFiles/iio-raw_hello.dir/DependInfo.cmake"

@@ -72,6 +72,7 @@ CMAKE_BINARY_DIR = /home/analog/Documents/build-iio_raw-Desktop-Debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/iio-raw_buffer.dir/all
 all: CMakeFiles/iio-raw_getraw.dir/all
 all: CMakeFiles/iio-raw_ctxattr.dir/all
 all: CMakeFiles/iio-raw_hello.dir/all
@@ -84,11 +85,39 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/iio-raw_buffer.dir/clean
 clean: CMakeFiles/iio-raw_getraw.dir/clean
 clean: CMakeFiles/iio-raw_ctxattr.dir/clean
 clean: CMakeFiles/iio-raw_hello.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/iio-raw_buffer.dir
+
+# All Build rule for target.
+CMakeFiles/iio-raw_buffer.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=1,2 "Built target iio-raw_buffer"
+.PHONY : CMakeFiles/iio-raw_buffer.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/iio-raw_buffer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/iio-raw_buffer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles 0
+.PHONY : CMakeFiles/iio-raw_buffer.dir/rule
+
+# Convenience name for target.
+iio-raw_buffer: CMakeFiles/iio-raw_buffer.dir/rule
+
+.PHONY : iio-raw_buffer
+
+# clean rule for target.
+CMakeFiles/iio-raw_buffer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/clean
+.PHONY : CMakeFiles/iio-raw_buffer.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/iio-raw_getraw.dir
@@ -97,7 +126,7 @@ clean: CMakeFiles/iio-raw_hello.dir/clean
 CMakeFiles/iio-raw_getraw.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_getraw.dir/build.make CMakeFiles/iio-raw_getraw.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_getraw.dir/build.make CMakeFiles/iio-raw_getraw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=3,4 "Built target iio-raw_getraw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=5,6 "Built target iio-raw_getraw"
 .PHONY : CMakeFiles/iio-raw_getraw.dir/all
 
 # Build rule for subdir invocation for target.
@@ -124,7 +153,7 @@ CMakeFiles/iio-raw_getraw.dir/clean:
 CMakeFiles/iio-raw_ctxattr.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_ctxattr.dir/build.make CMakeFiles/iio-raw_ctxattr.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_ctxattr.dir/build.make CMakeFiles/iio-raw_ctxattr.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=1,2 "Built target iio-raw_ctxattr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=3,4 "Built target iio-raw_ctxattr"
 .PHONY : CMakeFiles/iio-raw_ctxattr.dir/all
 
 # Build rule for subdir invocation for target.
@@ -151,7 +180,7 @@ CMakeFiles/iio-raw_ctxattr.dir/clean:
 CMakeFiles/iio-raw_hello.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_hello.dir/build.make CMakeFiles/iio-raw_hello.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_hello.dir/build.make CMakeFiles/iio-raw_hello.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=5,6 "Built target iio-raw_hello"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/analog/Documents/build-iio_raw-Desktop-Debug/CMakeFiles --progress-num=7,8 "Built target iio-raw_hello"
 .PHONY : CMakeFiles/iio-raw_hello.dir/all
 
 # Build rule for subdir invocation for target.

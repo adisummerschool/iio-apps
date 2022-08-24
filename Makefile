@@ -130,6 +130,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named iio-raw_buffer
+
+# Build rule for target.
+iio-raw_buffer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 iio-raw_buffer
+.PHONY : iio-raw_buffer
+
+# fast build rule for target.
+iio-raw_buffer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/build
+.PHONY : iio-raw_buffer/fast
+
+#=============================================================================
 # Target rules for targets named iio-raw_getraw
 
 # Build rule for target.
@@ -167,6 +180,33 @@ iio-raw_hello: cmake_check_build_system
 iio-raw_hello/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_hello.dir/build.make CMakeFiles/iio-raw_hello.dir/build
 .PHONY : iio-raw_hello/fast
+
+buffer.o: buffer.c.o
+
+.PHONY : buffer.o
+
+# target to build an object file
+buffer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/buffer.c.o
+.PHONY : buffer.c.o
+
+buffer.i: buffer.c.i
+
+.PHONY : buffer.i
+
+# target to preprocess a source file
+buffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/buffer.c.i
+.PHONY : buffer.c.i
+
+buffer.s: buffer.c.s
+
+.PHONY : buffer.s
+
+# target to generate assembly for a file
+buffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iio-raw_buffer.dir/build.make CMakeFiles/iio-raw_buffer.dir/buffer.c.s
+.PHONY : buffer.c.s
 
 ctxattr.o: ctxattr.c.o
 
@@ -257,9 +297,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... iio-raw_buffer"
 	@echo "... iio-raw_ctxattr"
 	@echo "... iio-raw_getraw"
 	@echo "... iio-raw_hello"
+	@echo "... buffer.o"
+	@echo "... buffer.i"
+	@echo "... buffer.s"
 	@echo "... ctxattr.o"
 	@echo "... ctxattr.i"
 	@echo "... ctxattr.s"
