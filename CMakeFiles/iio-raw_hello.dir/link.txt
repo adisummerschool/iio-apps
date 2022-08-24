@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/iio-raw_hello.dir/hello.c.o -o iio-raw_hello 
