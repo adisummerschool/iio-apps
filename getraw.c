@@ -18,13 +18,11 @@ int main(){
 
 
         int nr_ctx_attrs = iio_context_get_attrs_count(ctx);
-        printf("%d context attributes found\n", nr_ctx_attrs);
 
         for (int i=0; i< nr_ctx_attrs; i++){
             char *name;
             char *value;
             iio_context_get_attr(ctx, i, &name, &value);
-            printf("ctxattr[%d] - name:%lx %s -value:%lx %s\n", i, name, name , value, value);
         }
 
 
@@ -34,8 +32,6 @@ int main(){
                printf("No device\n");
                return -1;
        }
-       printf("Got device %s %lx\n", DEVICE_NAME , dev);
-
 
 
 
@@ -44,7 +40,6 @@ int main(){
                printf("No channels\n");
                return -1;
        }
-       printf("Got %lx channels\n", ch);
 
 
 
@@ -55,12 +50,10 @@ int main(){
                    printf("No channels found\n");
                    return -1;
            }
-           printf("Got channel %s %lx \n", iio_channel_get_id(chan[i]), chan[i]);
        }
 
        for (int i = 0; i < ch; i++){
        int nr_chan_attrs = iio_channel_get_attrs_count(chan[i]);
-       printf("%d Attributes found on channel %d\n", nr_chan_attrs, i);
        }
 
 
