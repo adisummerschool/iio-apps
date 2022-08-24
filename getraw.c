@@ -23,7 +23,6 @@ int main() {
     }
     printf("Got device %s %lx\n", DEVICE_NAME, dev);
 
-
     int nr_chan;
     nr_chan = iio_device_get_channels_count(dev);
     printf("IIO device has %u channels:\n", nr_chan);
@@ -50,11 +49,10 @@ int main() {
             int x = values[0] - values[1];
             int y = values[2] - values[3];
 
-            printf("x = %5d\ty = %5d\n", x, y);
+            printf("x = %4d\ty = %4d\n", x, y);
             fflush(stdout);
             usleep(500 * 1000);
         }
-
 
     return 0;
 }
