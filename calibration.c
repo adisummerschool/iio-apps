@@ -3,12 +3,12 @@
 
 struct iio_context *ctx = NULL;
 struct iio_device *dev = NULL;
-int nr_ctx_attr;
 int nr_chan;
 
 #define URI "ip:10.76.84.217"
 #define DEVICE_NAME "ad5592r"
 #define DELTA 30
+
 int main (){
 
 	ctx = iio_create_context_from_uri(URI);
@@ -17,17 +17,6 @@ int main (){
 		return -1;
 	}
 
-	nr_ctx_attr = iio_context_get_attrs_count(ctx);
-	printf("%d context attr", nr_ctx_attr);
-
-	for(unsigned int i=0;i<nr_ctx_attr;i++)
-	{
-		const char *name, *value;
-		iio_context_get_attr(ctx, i, &name, &value);
-		printf("Name: %s , Value: %s \n", name, value);
-	}
-
-	printf("\n");
 	dev = iio_context_find_device(ctx, DEVICE_NAME);
 	if(dev == NULL){
 		printf("no device found\n");
@@ -59,7 +48,7 @@ int main (){
 
 		int x = raw[0]+raw[1];
 		int y = raw[2]+raw[3];
-		printf("x= %lld\t y= %lld\n", x,y);
+		printf("x= %lld\t y= %lld\n", x, y);
 		printf("\n");
 		if(x > DELTA)
 			printf("Roteste X STANGA");
