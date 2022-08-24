@@ -11,3 +11,6 @@ target_link_libraries(${PROJECT_NAME}_ctxattr iio)
 
 add_executable(${PROJECT_NAME}_getraw getraw.c)
 target_link_libraries(${PROJECT_NAME}_getraw iio)
+
+add_executable(${PROJECT_NAME}_buffer buffer.c)
+target_link_libraries(${PROJECT_NAME}_buffer iio)
