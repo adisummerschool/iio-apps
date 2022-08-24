@@ -10,5 +10,10 @@ project(iio-raw)
 add_executable(${PROJECT_NAME}_hello hello.c    )
 add_executable(${PROJECT_NAME}_ctxattr ctxattr.c)
 add_executable(${PROJECT_NAME}_getraw getraw.c)
+target_link_libraries(${PROJECT_NAME}_getraw iio)
 target_link_libraries(${PROJECT_NAME}_ctxattr iio)
+
+add_executable(${PROJECT_NAME}_buffer buffer.c)
+target_link_libraries(${PROJECT_NAME}_buffer iio)
+
 
