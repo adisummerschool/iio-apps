@@ -5,7 +5,8 @@
 #define IP_ADDR "ip:10.76.84.219"
 #define DEVICE_NAME "iio-ad5592r"
 #define ATTR_RAW "raw"
-#define SAMPLES_COUNT 100
+#define SAMPLES_COUNT 5
+
 
 
 struct iio_context *ctx   = NULL;
@@ -41,6 +42,11 @@ int main(){
     }
 
     buffer = iio_device_create_buffer(dev, SAMPLES_COUNT, false);//creates buffer on target
+    if (buffer == NULL) {
+        printf("No buffer created\n");
+        return -3;
+    }
+
 
     int bytes_no = iio_buffer_refill(buffer); //get data from device buffer
     printf("bytes_no = %d\n",bytes_no);
@@ -48,7 +54,6 @@ int main(){
         printf("Error reading from buffer!\n");
         return -1;
     }
-
 
     for(int i = 0; i < nr_of_channels; i++){
         iio_channel_disable(chan[i]);
