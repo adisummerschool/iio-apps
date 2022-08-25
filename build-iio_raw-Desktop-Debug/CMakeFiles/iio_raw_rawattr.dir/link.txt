@@ -1,1 +1,0 @@
-/usr/bin/gcc -g CMakeFiles/iio_raw_rawattr.dir/rawattr.c.o -o iio_raw_rawattr 

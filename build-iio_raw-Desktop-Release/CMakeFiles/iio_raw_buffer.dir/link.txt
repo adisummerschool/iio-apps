@@ -1,1 +1,0 @@
-/usr/bin/gcc -O3 -DNDEBUG CMakeFiles/iio_raw_buffer.dir/buffer.c.o -o iio_raw_buffer  -liio 

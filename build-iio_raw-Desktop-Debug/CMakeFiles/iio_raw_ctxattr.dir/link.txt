@@ -1,1 +1,0 @@
-/usr/bin/gcc -g CMakeFiles/iio_raw_ctxattr.dir/ctxattr.c.o -o iio_raw_ctxattr  -liio 

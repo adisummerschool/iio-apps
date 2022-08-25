@@ -1,1 +1,0 @@
-/usr/bin/gcc -O3 -DNDEBUG CMakeFiles/iio_raw_getraw.dir/getraw.c.o -o iio_raw_getraw  -liio 
