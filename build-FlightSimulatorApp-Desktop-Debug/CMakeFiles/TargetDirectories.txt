@@ -1,4 +1,0 @@
-/home/analog/tmp/build-FlightSimulatorApp-Desktop-Debug/CMakeFiles/rebuild_cache.dir
-/home/analog/tmp/build-FlightSimulatorApp-Desktop-Debug/CMakeFiles/edit_cache.dir
-/home/analog/tmp/build-FlightSimulatorApp-Desktop-Debug/CMakeFiles/widgetsapp.dir
-/home/analog/tmp/build-FlightSimulatorApp-Desktop-Debug/CMakeFiles/widgetsapp_autogen.dir
