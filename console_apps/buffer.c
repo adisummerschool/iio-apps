@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <iio.h>
-#include <byteswap.h>
 
 struct iio_context *ctx = NULL;
 struct iio_device *dev = NULL;
@@ -11,7 +10,6 @@ int nr_chan;
 
 #define URI "ip:10.76.84.217"
 #define DEVICE_NAME "ad5592r"
-#define DELTA 30
 #define BUF_SIZE 100
 
 int main (){
@@ -59,10 +57,6 @@ int main (){
 
 		for(int i=0;i<4;i++)
 		{
-			int16_t *a = (int16_t*)(ptr + 2*i);
-			int16_t val = *a;
-			printf("=-%u\n", val);
-			printf("\n");
 			int16_t data = ((int16_t*)ptr)[i];
 			printf("--%u\n", data);
 		}
