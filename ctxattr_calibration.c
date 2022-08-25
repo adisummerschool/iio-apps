@@ -4,13 +4,13 @@
 struct iio_context *ctx = NULL;
 struct iio_device  *device = NULL;
 
-#define IP_ADDR "ip:10.76.84.219"
-#define DEVICE_NAME "iio-ad5592r"
+#define URI "ip:10.76.84.212"
+#define DEVICE_NAME "ad5592r"
 #define GOOD_TRSH 50
 #define SLIGHT_TRSH 500
 
 int main() {
-    ctx = iio_create_context_from_uri(IP_ADDR);
+    ctx = iio_create_context_from_uri(URI);
     if (ctx == NULL) {
         printf("No context\n");
         return -1;
