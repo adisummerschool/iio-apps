@@ -26,7 +26,7 @@ int main() {
     dev = iio_context_find_device(ctx, DEV_NAME);
     if(dev == NULL){
         printf("Could not find specified device");
-        return -1;
+        return -2;
     }
 
     //Assigning the channels in the channel array
