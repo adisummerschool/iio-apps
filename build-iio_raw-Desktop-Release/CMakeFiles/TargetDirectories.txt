@@ -1,0 +1,6 @@
+/home/analog/tmp/build-iio_raw-Desktop-Release/CMakeFiles/rebuild_cache.dir
+/home/analog/tmp/build-iio_raw-Desktop-Release/CMakeFiles/iio_raw_buffer.dir
+/home/analog/tmp/build-iio_raw-Desktop-Release/CMakeFiles/edit_cache.dir
+/home/analog/tmp/build-iio_raw-Desktop-Release/CMakeFiles/iio_raw_getraw.dir
+/home/analog/tmp/build-iio_raw-Desktop-Release/CMakeFiles/iio_raw_ctxattr.dir
+/home/analog/tmp/build-iio_raw-Desktop-Release/CMakeFiles/iio_raw_hello.dir

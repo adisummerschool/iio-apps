@@ -1,0 +1,86 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "iio_raw",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "iio_raw_buffer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-iio_raw_buffer-Release-657a7879e3e7e775ac90.json",
+					"name" : "iio_raw_buffer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "iio_raw_ctxattr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-iio_raw_ctxattr-Release-a500435a9ffef74af6ca.json",
+					"name" : "iio_raw_ctxattr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "iio_raw_getraw::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-iio_raw_getraw-Release-e6bc7617ea27ae027312.json",
+					"name" : "iio_raw_getraw",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "iio_raw_hello::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-iio_raw_hello-Release-914fc79e983ffdde5fac.json",
+					"name" : "iio_raw_hello",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/analog/tmp/build-iio_raw-Desktop-Release",
+		"source" : "/home/analog/tmp/iio_raw"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 1
+	}
+}
