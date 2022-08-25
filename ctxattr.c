@@ -14,7 +14,7 @@ int main() {
     if(ctx == NULL){
         printf("No context \n");
         return -1;
-        }
+    }
 
     p = iio_context_get_attr_value(ctx, "hw_carrier");
 
@@ -27,8 +27,6 @@ int main() {
         char *name, *value;
         iio_context_get_attr(ctx, i, &name, &value);
         printf("ctrxattr[%d] -name:%x %s -value %x %s \n",i, name,name, value, value);
-
     }
-
     return 0;
 }

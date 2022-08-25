@@ -14,3 +14,6 @@ target_link_libraries(${PROJECT_NAME}_raw iio)
 
 add_executable(${PROJECT_NAME}_getbuffer getbuffer.c)
 target_link_libraries(${PROJECT_NAME}_getbuffer iio)
+
+add_executable(${PROJECT_NAME}_calibrare calibrare.c)
+target_link_libraries(${PROJECT_NAME}_calibrare iio)

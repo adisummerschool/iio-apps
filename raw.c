@@ -22,28 +22,31 @@ int main(){
         nr_chan = iio_device_get_channels_count(dev);
         printf("IIO device has %u channels:\n", nr_chan);
 
-        for (int i=0; i < nr_chan; i++) {
-
+        for (int i=0; i < nr_chan; i++)
+        {
             ch[i] = iio_device_get_channel(dev, i);
             if(ch[i] == NULL) {
                 printf("Channel not found\n");
                 return -1;
             }
             printf("Got channel %s %lx\n", iio_channel_get_id(ch[i]), ch[i]);
-    }
+        }
 
-            int values[4];
-            while(1) {
-                 for (int i=0; i < 4; i++) {
+        int values[4];
+        while(1)
+        {
+            for (int i=0; i < 4; i++)
+            {
                 char buf[10];
                 iio_channel_attr_read(ch[i], "raw", &buf, 10);
                 values[i] = atoi(buf);
-                 }
-                int x = values[0] - values[1];
-                int y = values[2] - values[3];
+            }
+            int x = values[0] - values[1];
+            int y = values[2] - values[3];
 
-                printf("x=%5d\ty=%5d\n", x,y);
-                   fflush(stdout);
-                   usleep(1000 * 1000);
-          }
+            printf("x=%5d\ty=%5d\n", x,y);
+            fflush(stdout);
+            usleep(1000 * 1000);
+        }
+        return 0;
 }
