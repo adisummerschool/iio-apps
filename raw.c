@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include<iio.h>
+#include <iio.h>
 
 struct iio_context *ctx =NULL;
 struct iio_device *dev=NULL;
-struct iio_channels *chan[4];
+struct iio_channel *chan[4];
+struct iio_buffer *buff;
 static bool stop;
 
 #define URI "ip:10.76.84.212"
@@ -35,9 +36,14 @@ int main() {
             printf("No channel!\n");
             return -1;
         }
+        iio_channel_enable(chan[i]);
         printf("Got channels! %s %lx \n", iio_channel_get_id(chan[i]),chan[i]);
-    }
 
+        long long raw;
+        iio_channel_attr_read_longlong(chan[i],"raw",&raw);
+        printf("Raw: %lld \n",raw);
+
+    }
 
     int values[4];
     while(1){
