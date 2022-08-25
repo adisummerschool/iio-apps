@@ -1,61 +1,87 @@
 #include <stdio.h>
 #include <iio.h>
-#include <unistd.h>
-struct iio_context *ctx = NULL;
-struct iio_device *dev = NULL;
-struct iio_channel *chan [4]; //define a struct array
-struct iio_buffer *buffer = NULL;
+#include <byteswap.h>
+#include <time.h>
 
-#define URI "ip:10.76.84.217"
-#define DEVICE_NAME "ad5592r"
+struct iio_context *ctx = NULL;
+struct iio_device  *device = NULL;
+struct iio_buffer  *buffer = NULL;
+
+#define THRESH 250
 
 int main() {
-    char *p;
-    ctx = iio_create_context_from_uri(URI) ;
-    if(ctx == NULL){
-        printf ("No context \n");
-        return -1;
-    }
-    p = iio_context_get_attr_value(ctx,"hw_carrier");
+ctx = iio_create_context_from_uri("ip:10.76.84.217");
+if (ctx == NULL) {
+    printf("No context\n");
+    return -1;
+}
 
-    int nr_ctx_attr;
-    nr_ctx_attr = iio_context_get_attrs_count(ctx);
+device = iio_context_find_device(ctx, "ad5592r");
+if (device == NULL) {
+    printf("No device\n");
+    return -2;
+}
 
-    dev = iio_context_find_device(ctx,DEVICE_NAME);
-    if(dev == NULL){
-        printf ("No device \n");
-        return -1;
-    }
+struct iio_channel  *chan;
+for(int i =0;i < 4; i++) {
+    chan = iio_device_get_channel(device, i);
+    iio_channel_enable(chan);
+}
 
 
-    unsigned int chan_count = iio_device_get_channels_count(dev);// determin the numbers of channels
-    for(int i = 0 ; i < chan_count; i++){
-        chan[i] = iio_device_get_channel(dev,i);// getting chhannels
-        if(chan[i] == NULL){
-            printf ("Channel not found\n");
-            return -1;
+buffer = iio_device_create_buffer(device, 100, false);
+if (buffer == NULL) {
+    printf("No buffer created\n");
+    return -3;
+}
+
+
+int x,y,prevx,prevy;
+int eventX, eventY;
+bool first=true;
+bool trigger = false;
+while(1) {
+    iio_buffer_refill(buffer);
+    trigger = false;
+    for (char *ptr = iio_buffer_start(buffer);
+         ptr < iio_buffer_end(buffer);
+         ptr += iio_buffer_step(buffer)) {
+
+        int16_t values[4];
+
+        values[0] = *(int16_t*)(ptr);
+        values[1] = *(int16_t*)(ptr+2);
+        values[2] = *(int16_t*)(ptr+4);
+        values[3] = *(int16_t*)(ptr+6);
+
+        prevx = x;
+        prevy = y;
+        x = values[0] - values[1];
+        y = values[2] - values[3];
+
+        //printf("%d %d\n" ,x,y );
+        if(first) {
+            first = false;
+            continue;
         }
-        iio_channel_enable(chan[i]);//enable buffer if found
+        if(abs(x-prevx) > THRESH || abs(y-prevy)>THRESH) {
+            eventX = abs(x-prevx);
+            eventY = abs(y-prevy);
+
+            trigger = true;
+        }
 
     }
-
-    buffer = iio_device_create_buffer(dev,100,false);
-    if(buffer == NULL){
-        printf ("Buffer not found\n");
-        return -1;
+    if(trigger) {
+        time_t t = time(NULL);
+        struct tm tm = *localtime(&t);
+        printf("now: %d-%02d-%02d %02d:%02d:%02d: ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+        printf("Accelerometer Event: X:%5d Y:%5d\n", eventX, eventY);
+        fflush(stdout);
     }
+}
 
-    int nr_bits = iio_buffer_refill(buffer) ;
 
-    if(nr_bits < 0) printf("Refill failed");
-    else printf("The number of bites is %d \n",nr_bits);
-
-    for (void *ptr = iio_buffer_first(buffer, chan);
-               ptr < iio_buffer_end(buffer);
-               ptr += iio_buffer_step(buffer)) {
-
-    }
-
-    iio_buffer_destroy(buffer);//buffer destroyed after usage
-    return 0;
+iio_buffer_destroy(buffer);
+return 0;
 }

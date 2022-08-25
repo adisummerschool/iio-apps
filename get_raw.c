@@ -51,6 +51,6 @@ int main() {
         fflush(stdout);
         usleep( 500*1000 );
         }
-    }
+
     return 0;
 }
