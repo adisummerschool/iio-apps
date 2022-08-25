@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/analog/Documents/iio-apps/consoleapps/buffer.c
+stdio.h
+-
+unistd.h
+-
+iio.h
+-
+errno.h
+-
+string.h
+-
+time.h
+-
+
