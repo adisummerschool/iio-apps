@@ -4,6 +4,8 @@
 
 #define IP_ADDR "ip:10.76.84.219"
 #define DEVICE_NAME "iio-ad5592r"
+#define ATTR_RAW "raw"
+
 
 struct iio_context *ctx   = NULL;
 struct iio_device *dev = NULL;
@@ -48,15 +50,19 @@ int read_raw(bool inf){
         long long raw_data[nr_of_channels];
         for(int i = 0; i < nr_of_channels; i++){
             char buf[10];
-            iio_channel_attr_read(chan[i], "raw", &buf, 10);
+            iio_channel_attr_read(chan[i], ATTR_RAW, buf, 10);
             raw_data[i]=atoi(buf);
 
         }
         int x = raw_data[0]-raw_data[1];
         int y = raw_data[2]-raw_data[3];
-        printf("x = %5d\ty = %5d\n", x, y);
+        printf("\nx = %5d\ty = %5d\n", x, y);
         fflush(stdout);
 
     }while(inf);
 
+    return 0;
+
 }
+
+
