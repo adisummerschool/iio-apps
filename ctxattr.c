@@ -67,7 +67,7 @@ int main(){
 
 
 
-       int value[4];
+       /*int value[4];
        while(1){
        for (int i = 0; i < 4; i++){
            char buf[10];
@@ -81,7 +81,7 @@ int main(){
        printf("x = %5d\ty = %5d\n", x, y);
        fflush(stdout);
        usleep(500*1000);
-       }
+       }*/
 
        return 0;
 }
