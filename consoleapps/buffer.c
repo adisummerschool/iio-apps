@@ -7,16 +7,16 @@ struct iio_context *ctx = NULL;
 struct iio_device  *device = NULL;
 struct iio_buffer  *buffer = NULL;
 
-#define THRESH 250
+#define THRESH 50
 
 int main() {
-ctx = iio_create_context_from_uri("ip:10.76.84.217");
+ctx = iio_create_context_from_uri("ip:10.76.84.219");
 if (ctx == NULL) {
     printf("No context\n");
     return -1;
 }
 
-device = iio_context_find_device(ctx, "ad5592r");
+device = iio_context_find_device(ctx, "iio-ad5592r");
 if (device == NULL) {
     printf("No device\n");
     return -2;
