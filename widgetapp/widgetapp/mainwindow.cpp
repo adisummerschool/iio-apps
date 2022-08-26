@@ -39,11 +39,11 @@ void MainWindow::init_ctx() {
     }
 }
 
-void MainWindow::calculateRP(float x, float y, float z, float *roll, float *pitch) {
-    int sign = z>0 ? 1 : -1;
+void MainWindow::calculateRP(float x, float y, float z, float *roll, float *pitch){
+    int sign = z > 0 ? 1 : -1;
 
-    *roll  = atan2( y,   sign *  sqrt(z*z + x*x));
-    *pitch = asin( x / sqrt( pow(x,2) + pow(y,2) + pow(z,2) ));
+    *roll  = atan2( y,   sign *  sqrt(z*z + x*x) );
+    *pitch = asin( x / sqrt( pow(x, 2) + pow(y, 2) + pow(z, 2) ));
 
     *pitch = *pitch * (180.0/M_PI);
     *roll = *roll * (180.0/M_PI) ;
@@ -56,14 +56,13 @@ void MainWindow::read() {
         iio_channel_attr_read(ch[i], ATTR_NAME_RAW, buf, 10);
         data[i] = atoi(buf);
     }
-    int y = data[0] - data[1];
-    int x = data[2] - data[3];
+    int x = data[0] - data[1];
+    int y = data[2] - data[3];
 
-    int z = 9.8;
+    int z = 4096 - abs(x) - abs(y);
 
-    float r, p;
-
-    calculateRP(x, y, z, &r, &p);
+    float r,p;
+    calculateRP((float)y,(float)x,(float)z,&r,&p);
 
     ui->lbX->setText(QString::number(x));
     ui->lbY->setText(QString::number(y));
@@ -90,12 +89,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     init_ctx();
 
-//    connect(ui->btnRead, &QPushButton::pressed, this, &MainWindow::read);
-
-//    connect(ui->btnRead, SIGNAL(clicked()), this, SLOT(read()));
-
     timer = new QTimer(0);
-    timer->setInterval(500);
+    timer->setInterval(100);
     connect(timer, &QTimer::timeout, this, &MainWindow::read);
 
     connect(ui->btnRead, SIGNAL(clicked()), this, SLOT(startTimer()));
