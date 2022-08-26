@@ -15,7 +15,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
     int init_ctx();
 
 public Q_SLOTS:  //functii care pot fi chemate direct/slots
